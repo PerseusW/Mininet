@@ -1,0 +1,14 @@
+How does TMUDP cause trouble?
+
+1. It is implemented in the application layer.
+    Software implementation requires more resources from CPU.
+
+2. It has no required congestion control(although we could add it),
+    which could lead to overflow of data in the network infrastructure,
+    especially if the network is already congested(a loss-loss situation).
+
+3. It doesn't have required mechanisms to fully utilize link bandwidth.
+    This would waste bandwidth and time which are crucial resources.
+
+4. Unlike TCP, we can only demultiplex by (destination IP, destination Port).
+    If we want to achieve TCP-like demultiplex, then we have to implement it ourselves.
